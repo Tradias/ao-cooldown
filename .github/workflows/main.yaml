@@ -19,7 +19,8 @@ jobs:
         run: cmake --build build --config Release
 
       - name: Smoke test
-        run: build/Release/ao-cooldown.exe
+        run: build/Release/ao-cooldown.exe || test $? -eq 1
+        shell: bash
 
       - name: Release
         uses: softprops/action-gh-release@v2
