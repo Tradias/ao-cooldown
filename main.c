@@ -25,7 +25,7 @@ float as_cooldown(struct Input input, int32_t skill) {
 }
 
 float burst_cooldown(struct Input input, int32_t skill) {
-  return (input.recharge * 20.f) + (input.cycle / 100.f) - (skill / 25.f) +
+  return (input.recharge + (input.cycle / 2000.f) - (skill / 500.f)) * 20.f +
          input.attack;
 }
 
