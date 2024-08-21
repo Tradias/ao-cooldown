@@ -24,7 +24,7 @@ typedef int32_t (*test_action)(int32_t, int32_t);
 
 void *copy_n(const void *source, size_t count, void *dest) {
   memcpy(dest, source, count);
-  return dest + count;
+  return (char*)dest + count;
 }
 
 char *build_command(const char *args) {
