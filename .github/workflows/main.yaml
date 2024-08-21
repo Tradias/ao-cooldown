@@ -1,0 +1,28 @@
+name: Main
+
+on: push
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure CMake
+        run: cmake "-DCMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded$<$<CONFIG:Debug>:Debug>" -Bbuild .
+
+      - name: Build
+        run: cmake --build build --config Release
+
+      - name: Smoke test
+        run: build/Release/ao-cooldown.exe
+
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: build/Release/ao-cooldown.exe
