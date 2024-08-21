@@ -18,6 +18,9 @@ jobs:
       - name: Build
         run: cmake --build build --config Release
 
+      - name: Test
+        run: build/Release/ao-cooldown-test.exe
+
       - name: Smoke test
         run: build/Release/ao-cooldown.exe || test $? -eq 1
         shell: bash
