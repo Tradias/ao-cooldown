@@ -1,5 +1,7 @@
 # Usage
 
+[Download latest release](https://github.com/Tradias/ao-cooldown/releases/latest/download/ao-cooldown.exe).
+
 ```
 ao-cooldown.exe as|burst|fast|fling|fa attack recharge [burst cycle|fa cycle]
 ```
