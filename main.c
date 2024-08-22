@@ -50,7 +50,7 @@ void print_cooldowns(struct Input input, int32_t cap, formula formula) {
     ++skill;
     current_cd = formula(input, skill);
     if (floor(previous_cd) > floor(current_cd) && current_cd > cap) {
-      printf("%2is | %i\n", (int)floor(current_cd), skill);
+      printf("%2is | %i\n", (int)current_cd, skill);
     }
     previous_cd = current_cd;
   } while (previous_cd > cap);

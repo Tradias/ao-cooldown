@@ -65,6 +65,9 @@ int32_t test_tigress_as(int32_t cooldown, int32_t skill) {
   if (cooldown == 12 && skill == 1481) {
     return 1;
   }
+  if (cooldown == 11 && skill == 1514) {
+    return 1;
+  }
   return 0;
 }
 
@@ -82,8 +85,16 @@ int32_t test_bigburger_fa(int32_t cooldown, int32_t skill) {
   return 0;
 }
 
+int32_t test_hellfury_fa(int32_t cooldown, int32_t skill) {
+  if (cooldown == 11 && skill == 976) {
+    return 1;
+  }
+  return 0;
+}
+
 int main(int argc, const char **argv) {
-  test_assert(1 == run(test_tigress_as, "as 1.4 1.4"));
+  test_assert(2 == run(test_tigress_as, "as 1.4 1.4"));
   test_assert(1 == run(test_envoy_to_chaos_burst, "burst 1.2 1.2 4000"));
   test_assert(1 == run(test_bigburger_fa, "fa 1.3 1 3400"));
+  test_assert(1 == run(test_hellfury_fa, "fa 1 1"));
 }
